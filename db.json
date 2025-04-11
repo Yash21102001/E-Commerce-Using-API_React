@@ -1,0 +1,56 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "title": "bag",
+      "price": 109.95,
+      "description": "Ab",
+      "category": "men's clothing",
+      "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
+    },
+    {
+      "id": "07fb",
+      "category": "electronics",
+      "title": "iPhone 16 128 GB: 5G Mobile Phone ",
+      "price": "70000",
+      "image": "https://m.media-amazon.com/images/I/713SsA7gftL._SX679_.jpg",
+      "description": "BUILT FOR APPLE INTELLIGENCE — Apple Intelligence is the personal intelligence system that helps you write, express yourself and get things done effortlessly. With groundbreaking privacy protections, it gives you peace of mind that no one else can access your data — not even Apple."
+    },
+    {
+      "id": "dd07",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGPTZalCSbWqk-fZ5LKl3PofEN13EEC1KwIA&s",
+      "price": "537",
+      "title": "tyuj",
+      "category": "electronics",
+      "description": "qwertyuiop"
+    },
+    {
+      "id": "03a2",
+      "title": "Cupiditate nihil ips",
+      "price": "814",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgdVNGm3IMqwaJTRCsqOgZQdx0t39PbG86yw&s",
+      "description": "Mollitia nobis aliqu",
+      "category": "electronics"
+    }
+  ],
+  "reviews": [
+    {
+      "id": "5d6e",
+      "description": "ertyui",
+      "star": 5,
+      "productId": "07fb"
+    },
+    {
+      "id": "c976",
+      "description": "fgjklkmnbvc",
+      "star": 4,
+      "productId": "1"
+    },
+    {
+      "id": "3195",
+      "description": "good ",
+      "star": 5,
+      "productId": "07fb"
+    }
+  ]
+}
