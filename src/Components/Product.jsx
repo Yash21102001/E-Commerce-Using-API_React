@@ -4,13 +4,13 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
-import { useNavigate } from "react-router-dom"; // Import useNavigate
+import { useNavigate } from "react-router-dom"; 
 import Review from "./Review";
 import { ToastContainer, toast } from 'react-toastify';
 
 const Product = () => {
   const [productData, setProductData] = useState([]);
-  const navigate = useNavigate(); // Initialize useNavigate
+  const navigate = useNavigate(); 
 
   useEffect(() => {
     let getProduct = async () => {
@@ -20,13 +20,13 @@ const Product = () => {
     };
 
     getProduct();
-  }, []); // Remove setProductData from dependency array since it's not needed
+  }, []); 
 
   return (
     <Container>
       <Row className="justify-content-md-center">
         {productData.map((val) => (
-          <Col md="auto" key={val.id}> {/* Add key prop for list rendering */}
+          <Col md="auto" key={val.id}> 
             <Card style={{ width: "20rem" }}>
               <Card.Img
                 variant="top"
@@ -43,7 +43,7 @@ const Product = () => {
                 </Button>
                 <Button
                   variant="primary"
-                  onClick={() => navigate(`/View_Product/${val.id}`)} // Navigate to product details
+                  onClick={() => navigate(`/View_Product/${val.id}`)} 
                 >
                   View More
                 </Button>
@@ -52,7 +52,8 @@ const Product = () => {
           </Col>
         ))}
       </Row>
-      
+      <ToastContainer />
+
     </Container>
   );
 };

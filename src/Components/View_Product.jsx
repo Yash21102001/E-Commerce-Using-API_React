@@ -25,26 +25,136 @@ function View_Product() {
   }, [id]);
 
   if (!product) {
-    return <div style={{ padding: "2rem" }}>Loading...</div>;
+    return <div style={{ 
+      padding: "2rem", 
+      textAlign: "center",
+      fontSize: "1.2rem",
+      color: "#6c5ce7"
+    }}>Loading product details...</div>;
   }
 
   return (
-    <div style={{ padding: '2rem', backgroundColor: '#f5f7ff', minHeight: '100vh' }}>
-      <Card style={{ maxWidth: '600px', margin: '0 auto', border: 'none', borderRadius: '12px', boxShadow: '0 4px 15px rgba(108, 92, 231, 0.1)' }}>
-        <Card.Img variant="top" src={product.image} style={{ objectFit: 'contain', padding: '2rem', height: '300px' }} />
-        <Card.Body>
-          <Card.Title style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>{product.title}</Card.Title>
-          <Card.Text style={{ fontSize: '1rem', color: '#6c757d' }}>
-            {product.description}
-          </Card.Text>
-          <h5>Price: ₹{Math.ceil(product.price * 50)}</h5>
-          <p>Category: <strong>{product.category}</strong></p>
-          <Button variant="secondary" onClick={() => navigate(-1)}>
-            ← Back to Products
-          </Button>
-        </Card.Body>
-      </Card>
-      <Review productId={product.id}/>
+    <div style={{ 
+      padding: '2rem', 
+      backgroundColor: '#f8f9fa', 
+      minHeight: '100vh'
+    }}>
+      <div style={{
+        maxWidth: '800px',
+        margin: '0 auto',
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '2rem'
+      }}>
+        <Card style={{ 
+          border: 'none',
+          borderRadius: '16px',
+          boxShadow: '0 6px 20px rgba(108, 92, 231, 0.12)',
+          overflow: 'hidden'
+        }}>
+          <div style={{
+            display: 'flex',
+            flexDirection: ['column', 'row'],
+            alignItems: 'center'
+          }}>
+            <div style={{
+              flex: 1,
+              padding: '2rem',
+              backgroundColor: '#fff',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center'
+            }}>
+              <Card.Img 
+                variant="top" 
+                src={product.image} 
+                style={{ 
+                  objectFit: 'contain', 
+                  maxHeight: '350px',
+                  width: '100%',
+                  transition: 'transform 0.3s ease',
+                  ':hover': {
+                    transform: 'scale(1.05)'
+                  }
+                }} 
+              />
+            </div>
+            <Card.Body style={{
+              flex: 1,
+              padding: '2rem',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '1rem'
+            }}>
+              <Card.Title style={{ 
+                fontSize: '1.75rem', 
+                fontWeight: '700',
+                color: '#2d3436',
+                marginBottom: '0.5rem'
+              }}>
+                {product.title}
+              </Card.Title>
+              
+              <div style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.5rem',
+                marginBottom: '0.5rem'
+              }}>
+                <span style={{
+                  fontSize: '1.25rem',
+                  fontWeight: '600',
+                  color: '#6c5ce7'
+                }}>
+                  ₹{Math.ceil(product.price * 50)}
+                </span>
+                <span style={{
+                  fontSize: '0.85rem',
+                  color: '#636e72',
+                  backgroundColor: '#dfe6e9',
+                  padding: '0.25rem 0.75rem',
+                  borderRadius: '50px',
+                  textTransform: 'capitalize'
+                }}>
+                  {product.category}
+                </span>
+              </div>
+              
+              <Card.Text style={{ 
+                fontSize: '1rem', 
+                color: '#636e72',
+                lineHeight: '1.6',
+                marginBottom: '1.5rem'
+              }}>
+                {product.description}
+              </Card.Text>
+              
+              <div style={{ marginTop: 'auto' }}>
+                <Button 
+                  variant="outline-primary"
+                  onClick={() => navigate(-1)}
+                  style={{
+                    borderColor: '#6c5ce7',
+                    color: '#6c5ce7',
+                    fontWeight: '500',
+                    padding: '0.5rem 1.5rem',
+                    borderRadius: '8px',
+                    transition: 'all 0.2s ease',
+                    ':hover': {
+                      backgroundColor: '#6c5ce7',
+                      color: 'white'
+                    }
+                  }}
+                >
+                  ← Back to Products
+                </Button>
+              </div>
+            </Card.Body>
+          </div>
+        </Card>
+
+        <Review productId={product.id}/>
+      </div>
     </div>
   );
 }

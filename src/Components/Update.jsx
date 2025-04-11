@@ -1,254 +1,211 @@
-import React, { useEffect, useState } from 'react'
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Form from 'react-bootstrap/Form';
-import { Link, useNavigate, useParams } from 'react-router-dom';
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
-import View_Product from './View_Product';
+import React, { useEffect, useState } from 'react';
+import { Container, Row, Col, Form, Button, Card, Spinner } from 'react-bootstrap';
+import { useNavigate, useParams } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
+import { FaTag, FaImage, FaDollarSign, FaClipboardList, FaList } from 'react-icons/fa';
+import { motion } from 'framer-motion';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Update() {
+  const [category, setCategory] = useState([]);
+  const [product, setProduct] = useState({});
+  const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
+  const { id } = useParams();
 
-    let [category, setCategory] = useState([""])
-    let [product, setProduct] = useState({})
-    let nevigate = useNavigate()
-    let prodata = useParams();
+  useEffect(() => {
+    const getCategory = async () => {
+      try {
+        const res = await fetch("https://fakestoreapi.com/products/categories");
+        const data = await res.json();
+        setCategory(data);
+      } catch (err) {
+        toast.error("Failed to fetch categories");
+      } finally {
+        setLoading(false);
+      }
+    };
 
+    const getSingleProDetails = async () => {
+      try {
+        const res = await fetch(`http://localhost:3000/products/${id}`);
+        const data = await res.json();
+        setProduct(data);
+      } catch (err) {
+        toast.error("Failed to fetch product details");
+      }
+    };
 
+    getCategory();
+    getSingleProDetails();
+  }, [id]);
 
-    useEffect(() => {
-        getCategory()
-        getSingleProDetails()
+  const getInput = (e) => {
+    const { name, value } = e.target;
+    setProduct(prev => ({ ...prev, [name]: value }));
+  };
 
+  const submitData = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await fetch(`http://localhost:3000/products/${id}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(product),
+      });
 
-    }, [setCategory]);
-
-    let getSingleProDetails = async () => {
-        let proDetails = await fetch("http://localhost:3000/products/" + prodata.id);
-
-        let details = await proDetails.json();
-        console.log(details);
-        setProduct(details);
-
+      if (res.ok) {
+        toast.success("Product updated successfully!");
+        setTimeout(() => navigate("/"), 1500);
+      } else {
+        throw new Error();
+      }
+    } catch (error) {
+      toast.error("Something went wrong.");
     }
-    console.log(product);
-    
+  };
 
-    let getCategory = async () => {
-        let getCatData = await fetch(
-            "https://fakestoreapi.com/products/categories"
-        );
-        let cateData = await getCatData.json()
-        setCategory(cateData)
-    }
+  return (
+    <Container fluid className="d-flex justify-content-center align-items-center" style={{ background: '#f5f7ff', minHeight: '100vh', padding: '1.5rem 0' }}>
+      <Row className="justify-content-center w-100">
+        <Col md={6} lg={5} xl={4}>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <Card style={{ border: 'none', borderRadius: '12px', boxShadow: '0 2px 15px rgba(0,0,0,0.08)' }}>
+              <Card.Header className="text-white text-center" style={{ background: '#6c5ce7', borderRadius: '12px 12px 0 0', padding: '1rem' }}>
+                <h3 style={{ margin: 0, fontSize: '1.25rem', fontWeight: '500' }}>
+                  Update Product
+                </h3>
+              </Card.Header>
+              <Card.Body style={{ padding: '1.5rem' }}>
+                <Form onSubmit={submitData}>
+                  <Form.Group className="mb-3">
+                    <Form.Label>
+                      <FaList className="me-2" />
+                      Category
+                    </Form.Label>
+                    {loading ? (
+                      <Spinner animation="border" variant="primary" />
+                    ) : (
+                      <Form.Select 
+                        name="category" 
+                        onChange={getInput} 
+                        value={product.category || ""}
+                        required
+                      >
+                        <option value="">Select a category</option>
+                        {category.map((cat, i) => (
+                          <option key={i} value={cat}>{cat}</option>
+                        ))}
+                      </Form.Select>
+                    )}
+                  </Form.Group>
 
-    let getInput = (e) => {
-        let name = e.target.name;
-        let value = e.target.value;
-        setProduct({ ...product, [name]: value })
-    }
+                  <Form.Group className="mb-3">
+                    <Form.Label>
+                      <FaClipboardList className="me-2" />
+                      Product Title
+                    </Form.Label>
+                    <Form.Control 
+                      type="text" 
+                      name="title" 
+                      value={product.title || ""}
+                      onChange={getInput} 
+                      required 
+                    />
+                  </Form.Group>
 
-    let submitData = async (e) => {
-        e.preventDefault()
+                  <Row>
+                    <Col md={6}>
+                      <Form.Group className="mb-3">
+                        <Form.Label>
+                          <FaDollarSign className="me-2" />
+                          Price
+                        </Form.Label>
+                        <Form.Control 
+                          type="number" 
+                          name="price" 
+                          value={product.price || ""}
+                          onChange={getInput} 
+                          required 
+                        />
+                      </Form.Group>
+                    </Col>
+                    <Col md={6}>
+                      <Form.Group className="mb-3">
+                        <Form.Label>
+                          <FaImage className="me-2" />
+                          Image URL
+                        </Form.Label>
+                        <Form.Control 
+                          type="text" 
+                          name="image" 
+                          value={product.image || ""}
+                          onChange={getInput} 
+                          required 
+                        />
+                      </Form.Group>
+                    </Col>
+                  </Row>
 
-        console.log(product);
-        await fetch("http://localhost:3000/products/"+prodata.id, {
-            method: "put",
-            body: JSON.stringify(product),
-        });
+                  {product.image && (
+                    <div className="text-center mb-3">
+                      <img 
+                        src={product.image} 
+                        alt="Preview" 
+                        style={{ 
+                          maxHeight: '150px', 
+                          objectFit: 'contain',
+                          borderRadius: '8px',
+                          border: '1px solid #e0e0e0',
+                          padding: '4px'
+                        }} 
+                      />
+                    </div>
+                  )}
 
-        nevigate("/")
+                  <Form.Group className="mb-4">
+                    <Form.Label>
+                      <FaTag className="me-2" />
+                      Description
+                    </Form.Label>
+                    <Form.Control 
+                      as="textarea" 
+                      rows={3} 
+                      name="description" 
+                      value={product.description || ""}
+                      onChange={getInput} 
+                      required 
+                    />
+                  </Form.Group>
 
-        // await fetch(`http://localhost:3000/products/${prodata.id}`, {
-        //     method: "put",
-        //     body: JSON.stringify(product),
-        //   });
-        //   nevigate("/");
-      
-    }
-
-    return (
-        <Container fluid style={{
-            background: '#f5f7ff',
-            minHeight: '100vh',
-            padding: '1.5rem 0',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center'
-        }}>
-            <Row className="justify-content-center" style={{ width: '100%' }}>
-                <Col md={6} lg={5} xl={4}>
-                    <Card style={{
-                        border: 'none',
-                        borderRadius: '12px',
-                        boxShadow: '0 2px 15px rgba(0,0,0,0.08)',
-                        width: '100%'
-                    }}>
-                        <Card.Header style={{
-                            background: '#6c5ce7',
-                            color: 'white',
-                            borderRadius: '12px 12px 0 0',
-                            padding: '1rem',
-                            textAlign: 'center'
-                        }}>
-                            <h3 style={{
-                                margin: 0,
-                                fontSize: '1.25rem',
-                                fontWeight: '500'
-                            }}>
-                                Update Product
-                            </h3>
-                        </Card.Header>
-
-                        <Card.Body style={{ padding: '1.5rem' }}>
-                            <Form onSubmit={(e) => submitData(e)} method='post'>
-                                <Form.Group className="mb-3">
-                                    <Form.Label style={{
-                                        fontSize: '0.875rem',
-                                        color: '#4a4a4a',
-                                        marginBottom: '0.25rem'
-                                    }}>
-                                        Category
-                                    </Form.Label>
-                                    <Form.Select
-                                        name="category"
-                                        onChange={(e) => getInput(e)}
-                                        style={{
-                                            padding: '0.5rem 0.75rem',
-                                            borderRadius: '8px',
-                                            border: '1px solid #e0e0e0',
-                                            fontSize: '0.875rem'
-                                        }}
-                                    >
-                                        <option value="">Select a category</option>
-                                        {category.map((v, i) => {
-                                            return <option key={i} value={v}>{v}</option>;
-                                        })}
-                                    </Form.Select>
-                                </Form.Group>
-
-                                <Form.Group className="mb-3">
-                                    <Form.Label style={{
-                                        fontSize: '0.875rem',
-                                        color: '#4a4a4a',
-                                        marginBottom: '0.25rem'
-                                    }}>
-                                        Product Title
-                                    </Form.Label>
-                                    <Form.Control
-                                        type='text'
-                                        name='title'
-                                        value={product.title ? product.title : ""}
-
-                                        onChange={(e) => getInput(e)}
-                                        style={{
-                                            padding: '0.5rem 0.75rem',
-                                            borderRadius: '8px',
-                                            border: '1px solid #e0e0e0',
-                                            fontSize: '0.875rem'
-                                        }}
-                                    />
-                                </Form.Group>
-
-                                <Row>
-                                    <Col md={6}>
-                                        <Form.Group className="mb-3">
-                                            <Form.Label style={{
-                                                fontSize: '0.875rem',
-                                                color: '#4a4a4a',
-                                                marginBottom: '0.25rem'
-                                            }}>
-                                                Price
-                                            </Form.Label>
-                                            <Form.Control
-                                                type="number"
-                                                name='price'
-                                                value={product.price ? product.price : ""}
-                                                onChange={(e) => getInput(e)}
-                                                style={{
-                                                    padding: '0.5rem 0.75rem',
-                                                    borderRadius: '8px',
-                                                    border: '1px solid #e0e0e0',
-                                                    fontSize: '0.875rem'
-                                                }}
-                                            />
-                                        </Form.Group>
-                                    </Col>
-                                    <Col md={6}>
-                                        <Form.Group className="mb-3">
-                                            <Form.Label style={{
-                                                fontSize: '0.875rem',
-                                                color: '#4a4a4a',
-                                                marginBottom: '0.25rem'
-                                            }}>
-                                                Image URL
-                                            </Form.Label>
-
-                                                <img src={product.image ? product.image : ""} alt="" height={100} width={100} />
-                                            <Form.Control
-                                                type="text"
-                                                name='image'
-                                                value={product.image ? product.image : ""}
-                                                onChange={(e) => getInput(e)}
-                                                style={{
-                                                    padding: '0.5rem 0.75rem',
-                                                    borderRadius: '8px',
-                                                    border: '1px solid #e0e0e0',
-                                                    fontSize: '0.875rem'
-                                                }}
-                                            />
-                                        </Form.Group>
-                                    </Col>
-                                </Row>
-
-                                <Form.Group className="mb-4">
-                                    <Form.Label style={{
-                                        fontSize: '0.875rem',
-                                        color: '#4a4a4a',
-                                        marginBottom: '0.25rem'
-                                    }}>
-                                        Description
-                                    </Form.Label>
-                                    <Form.Control
-                                        as="textarea"
-                                        rows={3}
-                                        name='description'
-                                        value={product.description ? product.description : ""}
-                                        onChange={(e) => getInput(e)}
-                                        style={{
-                                            padding: '0.5rem 0.75rem',
-                                            borderRadius: '8px',
-                                            border: '1px solid #e0e0e0',
-                                            fontSize: '0.875rem'
-                                        }}
-                                    />
-                                </Form.Group>
-
-                                <Button
-                                    variant="primary"
-                                    type="submit"
-                                    style={{
-                                        width: '100%',
-                                        padding: '0.5rem',
-                                        fontWeight: '500',
-                                        fontSize: '0.875rem',
-                                        borderRadius: '8px',
-                                        background: '#6c5ce7',
-                                        border: 'none',
-                                        marginTop: '0.5rem'
-                                    }}
-                                >
-                                    Update Product
-                                </Button>
-                            </Form>
-                        </Card.Body>
-                    </Card>
-                </Col>
-            </Row>
-        </Container>
-    )
+                  <Button
+                    variant="primary"
+                    type="submit"
+                    style={{
+                      width: '100%',
+                      padding: '0.5rem',
+                      fontWeight: '500',
+                      fontSize: '0.875rem',
+                      borderRadius: '8px',
+                      background: '#6c5ce7',
+                      border: 'none'
+                    }}
+                  >
+                    Update Product
+                  </Button>
+                </Form>
+              </Card.Body>
+            </Card>
+          </motion.div>
+        </Col>
+      </Row>
+      <ToastContainer />
+    </Container>
+  );
 }
 
-export default Update
+export default Update;

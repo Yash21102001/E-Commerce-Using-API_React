@@ -1,54 +1,80 @@
 {
   "products": [
     {
-      "id": "1",
-      "title": "bag",
-      "price": 109.95,
-      "description": "Ab",
-      "category": "men's clothing",
-      "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
-    },
-    {
       "id": "07fb",
       "category": "electronics",
       "title": "iPhone 16 128 GB: 5G Mobile Phone ",
-      "price": "70000",
+      "price": "7000",
       "image": "https://m.media-amazon.com/images/I/713SsA7gftL._SX679_.jpg",
       "description": "BUILT FOR APPLE INTELLIGENCE — Apple Intelligence is the personal intelligence system that helps you write, express yourself and get things done effortlessly. With groundbreaking privacy protections, it gives you peace of mind that no one else can access your data — not even Apple."
     },
     {
-      "id": "dd07",
-      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGPTZalCSbWqk-fZ5LKl3PofEN13EEC1KwIA&s",
-      "price": "537",
-      "title": "tyuj",
-      "category": "electronics",
-      "description": "qwertyuiop"
+      "id": "2086",
+      "category": "men's clothing",
+      "image": "https://m.media-amazon.com/images/I/41aEWsjQyKL._AC_UF480,600_SR480,600_.jpg",
+      "title": "TOPLOT Unisex Woolen Blend Hooded Neck Hoodie",
+      "price": "20",
+      "description": "Soft and Breathable Fabric: Crafted Hooie from Wool Blend soft and breathable that keep you Warm and comfortable throughout the day.\nStyle Point : Hoodie with Printed gives a trendy yet Casual look. Durable stitching and Quality finish makes this Product a must have this Winter."
     },
     {
-      "id": "03a2",
-      "title": "Cupiditate nihil ips",
-      "price": "814",
-      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgdVNGm3IMqwaJTRCsqOgZQdx0t39PbG86yw&s",
-      "description": "Mollitia nobis aliqu",
+      "id": "aebe",
+      "image": "https://m.media-amazon.com/images/I/71r6RVkg+8L._SX679_.jpg",
+      "price": "10",
+      "title": "Alexandre Christie AC 6562 MCL",
+      "category": "men's clothing",
+      "description": "Chronograph for Men – Brown Rose Gold(Stainless Steel Case, Leather Strap,Quartz Movement, Dress Watch)"
+    },
+    {
+      "id": "90fe",
+      "image": "https://m.media-amazon.com/images/I/51K0d1cTh5L._AC_UL480_FMwebp_QL65_.jpg",
+      "category": "women's clothing",
+      "title": "Yellow Chimes",
+      "price": "10",
+      "description": "Yellow Chimes Ring Bracelet for Women and Girls Bracelet With Ring for Girls | Silver Gold Toned Chain Ring Bracelet | Birthday Gift For Girls and Women"
+    },
+    {
+      "id": "78fc",
+      "title": "Dell Gaming G15-5530 13th Gen Laptop",
+      "image": "https://m.media-amazon.com/images/I/41VaNiGQxML._SX300_SY300_QL70_FMwebp_.jpg",
+      "category": "electronics",
+      "price": "2200",
+      "description": "Intel i5-13450HX/16GB/512GB SSD/NVIDIA RTX 3050 (6GB GDDR6)/15.6\" (39.62cm) FHD 120Hz 250 nits/Win 11+MSO'21/Backlit Keyboard 4-Zone RGB/Dark Shadow Gray/2.65kg"
+    },
+    {
+      "id": "0719",
+      "image": "https://m.media-amazon.com/images/I/61AVvvY703L._AC_UL480_FMwebp_QL65_.jpg",
+      "price": "2500",
+      "title": "LG Ultragear Gaming 27 Inch (68.4 Cm) Full HD (1920 x 1080) Pixels LCD",
+      "description": "Full HD (1920 x 1080) Pixels LCD Monitor 165Hz, 1ms, Freesync Premium, HDMI x 2, Display Port, HP Out - 27GQ50F (Black)",
       "category": "electronics"
+    },
+    {
+      "id": "a5dd",
+      "image": "https://m.media-amazon.com/images/I/71jucJHKGrL._AC_UL480_FMwebp_QL65_.jpg",
+      "description": "\nBoldfit Trekking Shoes for Men Hiking Shoes for Men for Outdoor High Neck Shoes for Men Anti Skid Boot Shoes for Men for Hiking, Trekking Shoes Water Repellent Tracking Shoes for Men - 8, Sandstorm\n",
+      "title": "Boldfit",
+      "price": "250",
+      "category": "men's clothing"
+    },
+    {
+      "id": "5f8e",
+      "title": "Safari",
+      "image": "https://m.media-amazon.com/images/I/71jNUW-uOBL._AC_UL480_QL65_.jpg",
+      "category": "men's clothing",
+      "description": "Seek 45L Expandable Overnighter Laptop Backpack with Suitcase",
+      "price": "197"
     }
   ],
   "reviews": [
     {
-      "id": "5d6e",
-      "description": "ertyui",
-      "star": 5,
-      "productId": "07fb"
-    },
-    {
       "id": "c976",
       "description": "fgjklkmnbvc",
       "star": 4,
-      "productId": "1"
+      "productId": null
     },
     {
-      "id": "3195",
-      "description": "good ",
+      "id": "7d03",
+      "description": "Good",
       "star": 5,
       "productId": "07fb"
     }
