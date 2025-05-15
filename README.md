@@ -1,68 +1,111 @@
-# 🛒 E-Commerce Store – React + API
 
-A modern and responsive E-Commerce web application built using **React** (with **Vite**) and integrated with a RESTful API. This project demonstrates the fundamentals of frontend development including dynamic data fetching, cart management, responsive design, and clean component-based architecture.
+# 🛒 E-Commerce Web App using API (React)
 
----
+A modern E-Commerce web application built using **React.js** and **Fake Store API** to showcase dynamic product listings, filtering, and cart functionality. This project demonstrates a responsive and interactive front-end using real-time API data.
 
-## 📌 Table of Contents
+## 🔗 Live Demo
 
-- [Features](#-features)
-- [Tech Stack](#-tech-stack)
-- [Project Structure](#-project-structure)
-- [Installation](#-installation)
-- [API Setup (JSON Server)](#-api-setup-json-server)
-- [Linting](#-linting)
-- [Contributing](#-contributing)
-- [License](#-license)
-- [Author](#-author)
+[View Live](#) — *(Add your deployed link here if available)*
 
 ---
 
-## 🚀 Features
+## 📌 Features
 
-- ⚡ Fast build and hot reload with Vite
-- 🛍️ Dynamic product fetching from API
-- 🛒 Add to cart and remove from cart functionality
-- 🔍 Live product search
-- 📱 Fully responsive layout
-- 🧼 Clean code with ESLint support
+- 🛍️ View and browse products from the Fake Store API  
+- 🔍 Filter products by categories  
+- 🛒 Add/remove items to/from cart  
+- 🧮 Cart item count updates dynamically  
+- 📦 View detailed product information  
+- 📱 Responsive design for mobile & desktop  
+- ♻️ Reusable and clean component structure
 
 ---
 
 ## 🛠️ Tech Stack
 
-- **Frontend**: React, Vite
-- **Styling**: CSS
-- **API**: RESTful API (Mocked using JSON Server)
-- **Tooling**: ESLint
+- **Frontend**: React JS, HTML, CSS
+- **API**: [Fake Store API](https://fakestoreapi.com/)
+- **Icons**: React Icons
 
 ---
 
-## 📁 Project Structure
+## 📁 Folder Structure
 
+```
 E-Commerce-Using-API_React/
-├── public/ # Static assets
-├── src/ # Main source code
-│ ├── components/ # Reusable components like ProductList, Cart etc.
-│ ├── pages/ # Page-level components (if applicable)
-│ ├── App.jsx # Root component
-│ └── main.jsx # React entry point
-├── db.json # Mock API data
-├── package.json # Project metadata and dependencies
-├── vite.config.js # Vite configuration
-└── README.md # Project documentation (this file)
+│
+├── public/               # Public assets
+├── src/
+│   ├── Components/       # Reusable UI components
+│   │   ├── Card.js
+│   │   ├── Navbar.js
+│   │   ├── SingleProduct.js
+│   │   └── ...
+│   ├── App.js            # Main App component with routing
+│   ├── index.js          # React DOM rendering
+│   └── style.css         # Custom styling
+├── package.json          # Dependencies and scripts
+└── README.md             # Project documentation
+```
 
-🔌 API Setup (JSON Server)
-To simulate a backend API, use JSON Server with the included db.json.
-npm install -g json-server
-json-server --watch db.json --port 3000
+---
 
-👨‍💻 Author
-Chaudhari Yash Govindbhai
-💼 Full Stack Developer (MERN Stack)
+## 🚀 Getting Started
 
-GitHub: @Yash21102001
+### 1. Clone the Repository
 
-LinkedIn: linkedin.com/in/yashchaudhari
+```bash
+git clone https://github.com/Yash21102001/E-Commerce-Using-API_React.git
+cd E-Commerce-Using-API_React
+```
 
-Email: yash21102001@example.com
+### 2. Install Dependencies
+
+```bash
+npm install
+```
+
+### 3. Start the Development Server
+
+```bash
+npm start
+```
+
+App will run on `http://localhost:3000`
+
+---
+
+## 📷 Screenshots
+
+*(Add screenshots of the homepage, product list, product detail, and cart view for better visual context.)*
+
+---
+
+## 🧠 Learnings
+
+- Working with external APIs in React  
+- State management using hooks  
+- Component-based architecture  
+- Dynamic routing with React Router  
+- Responsive design and conditional rendering
+
+---
+
+## 🙌 Acknowledgements
+
+- [Fake Store API](https://fakestoreapi.com/) for product data
+- [React Icons](https://react-icons.github.io/react-icons/) for iconography
+
+---
+
+## 📬 Contact
+
+**Yash**  
+[GitHub Profile](https://github.com/Yash21102001)  
+[LinkedIn](#) *(Add your LinkedIn if you'd like)*
+
+---
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
