@@ -102,7 +102,7 @@ App will run on `http://localhost:3000`
 
 **Yash**  
 [GitHub Profile](https://github.com/Yash21102001)  
-[LinkedIn](#) *(Add your LinkedIn if you'd like)*
+[LinkedIn](https://linkedin.com/in/chaudhari-yash-349037350linkedin.com/in/chaudhari-yash-349037350) 
 
 ---
 
