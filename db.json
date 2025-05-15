@@ -4,7 +4,7 @@
       "id": "07fb",
       "category": "electronics",
       "title": "iPhone 16 128 GB: 5G Mobile Phone ",
-      "price": "7000",
+      "price": "2000",
       "image": "https://m.media-amazon.com/images/I/713SsA7gftL._SX679_.jpg",
       "description": "BUILT FOR APPLE INTELLIGENCE — Apple Intelligence is the personal intelligence system that helps you write, express yourself and get things done effortlessly. With groundbreaking privacy protections, it gives you peace of mind that no one else can access your data — not even Apple."
     },
@@ -19,7 +19,7 @@
     {
       "id": "aebe",
       "image": "https://m.media-amazon.com/images/I/71r6RVkg+8L._SX679_.jpg",
-      "price": "10",
+      "price": "8",
       "title": "Alexandre Christie AC 6562 MCL",
       "category": "men's clothing",
       "description": "Chronograph for Men – Brown Rose Gold(Stainless Steel Case, Leather Strap,Quartz Movement, Dress Watch)"
@@ -43,7 +43,7 @@
     {
       "id": "0719",
       "image": "https://m.media-amazon.com/images/I/61AVvvY703L._AC_UL480_FMwebp_QL65_.jpg",
-      "price": "2500",
+      "price": "2200",
       "title": "LG Ultragear Gaming 27 Inch (68.4 Cm) Full HD (1920 x 1080) Pixels LCD",
       "description": "Full HD (1920 x 1080) Pixels LCD Monitor 165Hz, 1ms, Freesync Premium, HDMI x 2, Display Port, HP Out - 27GQ50F (Black)",
       "category": "electronics"
@@ -67,16 +67,50 @@
   ],
   "reviews": [
     {
-      "id": "c976",
-      "description": "fgjklkmnbvc",
-      "star": 4,
-      "productId": null
-    },
-    {
-      "id": "7d03",
-      "description": "Good",
+      "id": "57dd",
+      "description": "rtyhj",
       "star": 5,
       "productId": "07fb"
+    },
+    {
+      "id": "c970",
+      "description": "erty",
+      "star": 5,
+      "productId": "a5dd"
+    },
+    {
+      "id": "45ef",
+      "description": "yuidcd",
+      "star": 5,
+      "productId": "a5dd"
+    },
+    {
+      "id": "e397",
+      "description": "Good Qulety",
+      "star": 4,
+      "productId": "2086"
+    },
+    {
+      "id": "c847",
+      "star": 5,
+      "productId": "2086"
+    },
+    {
+      "id": "751c",
+      "description": "e8dqw77888888qw7g8du78qwd87h",
+      "star": 5,
+      "productId": "2086"
+    },
+    {
+      "id": "9dae",
+      "description": "Good...",
+      "star": 5,
+      "productId": "0719"
+    },
+    {
+      "id": "7fe6",
+      "star": 4,
+      "productId": "0719"
     }
   ]
 }

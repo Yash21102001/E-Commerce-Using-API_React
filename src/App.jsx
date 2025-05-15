@@ -1,11 +1,14 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Product from "./Components/Product";
+// import Product from "./Components/Product";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Header from "./Components/Header";
 import ProductJsonServer from "./Components/Product using_json-server";
 import AddProduct from "./Components/AddProduct";
 import View_Product from "./Components/View_Product";
 import Update from "./Components/Update";
+import SignIn from "./auth/SignIn";
+import SignUp from "./auth/SignUp";
+
 
 function App() {
   return (
@@ -13,7 +16,8 @@ function App() {
       <BrowserRouter>
         <Header />
         <Routes>
-          {/* <Route path="/" element={<Product />} /> */}
+          <Route path="/SignIn" element={<SignIn/>} />
+          <Route path="/SignUp" element={<SignUp/>} />
           <Route path="/" element={<ProductJsonServer/>} />
           <Route path="/update/:id" element={<Update/>} />
           <Route path="/AddProduct" element={<AddProduct/>} />

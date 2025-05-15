@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, Link } from 'react-router-dom';
 import Review from './Review';
 import { ToastContainer, toast } from 'react-toastify';
 
@@ -135,7 +135,6 @@ function View_Product() {
                   onClick={() => navigate(-1)}
                   style={{
                     borderColor: '#6c5ce7',
-                    color: '#6c5ce7',
                     fontWeight: '500',
                     padding: '0.5rem 1.5rem',
                     borderRadius: '8px',
@@ -148,11 +147,31 @@ function View_Product() {
                 >
                   ← Back to Products
                 </Button>
+
+                <Link to="/SignIn"><Button 
+                  variant="outline-primary"
+                  style={{
+                    borderColor: '#6c5ce7',
+                    fontWeight: '500',
+                    padding: '0.5rem 1.5rem',
+                    borderRadius: '8px',
+                    transition: 'all 0.2s ease',
+                    marginLeft: "10px",
+                    ':hover': {
+                      backgroundColor: '#6c5ce7',
+                      color: 'white'
+                    }
+                  }}
+                >
+                  Add To Cart
+                </Button></Link>
               </div>
+            
+                  
             </Card.Body>
+            
           </div>
         </Card>
-
         <Review productId={product.id}/>
       </div>
     </div>
